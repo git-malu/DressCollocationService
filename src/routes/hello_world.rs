@@ -1,8 +1,9 @@
-use actix_web::{get, post, HttpResponse, Responder};
+use actix_web::web::Data;
+use actix_web::{get, post, web, HttpResponse, Responder};
 
 #[get("/")]
-pub(crate) async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+pub(crate) async fn hello(data: Data<i32>) -> impl Responder {
+    HttpResponse::Ok().body(format!("Hello world! {}", data.into_inner()))
 }
 
 #[post("/echo")]
