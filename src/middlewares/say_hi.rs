@@ -16,10 +16,10 @@ pub struct SayHi;
 // `S` - type of the next service
 // `B` - type of response's body
 impl<S, B> Transform<S, ServiceRequest> for SayHi
-    where
-        S: Service<ServiceRequest, Response = ServiceResponse<B>, Error = Error>,
-        S::Future: 'static,
-        B: 'static,
+where
+    S: Service<ServiceRequest, Response = ServiceResponse<B>, Error = Error>,
+    S::Future: 'static,
+    B: 'static,
 {
     type Response = ServiceResponse<B>;
     type Error = Error;
@@ -37,10 +37,10 @@ pub struct SayHiMiddleware<S> {
 }
 
 impl<S, B> Service<ServiceRequest> for SayHiMiddleware<S>
-    where
-        S: Service<ServiceRequest, Response = ServiceResponse<B>, Error = Error>,
-        S::Future: 'static,
-        B: 'static,
+where
+    S: Service<ServiceRequest, Response = ServiceResponse<B>, Error = Error>,
+    S::Future: 'static,
+    B: 'static,
 {
     type Response = ServiceResponse<B>;
     type Error = Error;

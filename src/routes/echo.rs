@@ -1,4 +1,4 @@
-use actix_web::{get, post, web, HttpResponse, Responder};
+use actix_web::{post, HttpResponse, Responder};
 
 #[post("/echo")]
 pub(crate) async fn echo(req_body: String) -> impl Responder {

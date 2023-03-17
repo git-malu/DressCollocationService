@@ -1,3 +1,3 @@
 pub mod app;
-pub mod routes;
 pub mod middlewares;
+pub mod routes;
